@@ -1,0 +1,59 @@
+com.fawadini.eznotes.app-navigation-runtime-2.8.4-0 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\07babec4c5bcfd418d9646d6572a19ed\transformed\navigation-runtime-2.8.4\res
+com.fawadini.eznotes.app-navigation-runtime-ktx-2.8.4-1 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\09b1a39b8cdf1439b4b3641e23341e75\transformed\navigation-runtime-ktx-2.8.4\res
+com.fawadini.eznotes.app-material-icons-core-release-2 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\0eb5c6ee16b34559aa7ee881fb2eb655\transformed\material-icons-core-release\res
+com.fawadini.eznotes.app-ui-util-release-3 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\0fcc77a2a4069479acdab1521f8c4640\transformed\ui-util-release\res
+com.fawadini.eznotes.app-material-release-4 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\159b4abab978109305eff555d9f977d2\transformed\material-release\res
+com.fawadini.eznotes.app-emoji2-1.3.0-5 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\198de4f5c02f777ef9d9a4886f984357\transformed\emoji2-1.3.0\res
+com.fawadini.eznotes.app-lifecycle-process-2.8.7-6 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\1c02384342840d7a0f1f20cff02c81db\transformed\lifecycle-process-2.8.7\res
+com.fawadini.eznotes.app-sqlite-framework-2.4.0-7 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\20ca8c620a1f86d609fbc916e437c585\transformed\sqlite-framework-2.4.0\res
+com.fawadini.eznotes.app-savedstate-1.2.1-8 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\24c4801c035f0cfe379e419fed3df676\transformed\savedstate-1.2.1\res
+com.fawadini.eznotes.app-ui-unit-release-9 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\25ff626f7c20d31ade03502cb5b19e20\transformed\ui-unit-release\res
+com.fawadini.eznotes.app-savedstate-ktx-1.2.1-10 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\281283edc01f90b2accf6ef49610bd24\transformed\savedstate-ktx-1.2.1\res
+com.fawadini.eznotes.app-lifecycle-viewmodel-ktx-2.8.7-11 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\2cb002a7e0415b68ed1fa97df574f22e\transformed\lifecycle-viewmodel-ktx-2.8.7\res
+com.fawadini.eznotes.app-ui-tooling-preview-release-12 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\315e70ef6b4e0c0706488a555f53a2ba\transformed\ui-tooling-preview-release\res
+com.fawadini.eznotes.app-ui-geometry-release-13 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\40615123429db9e1286705d95872b810\transformed\ui-geometry-release\res
+com.fawadini.eznotes.app-animation-core-release-14 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\4273b39e7950c5e0270f8e6921b2bc94\transformed\animation-core-release\res
+com.fawadini.eznotes.app-customview-poolingcontainer-1.0.0-15 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\44de49ff2c3a992c960b30f00e59868e\transformed\customview-poolingcontainer-1.0.0\res
+com.fawadini.eznotes.app-startup-runtime-1.1.1-16 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\4d1c3a4bf87b24760d65fce2863cef59\transformed\startup-runtime-1.1.1\res
+com.fawadini.eznotes.app-ui-graphics-release-17 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\52d0a4abde976aacc63943327f5dc8ea\transformed\ui-graphics-release\res
+com.fawadini.eznotes.app-material-ripple-release-18 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\58c1707cbff33b80efd055beed0ecca4\transformed\material-ripple-release\res
+com.fawadini.eznotes.app-animation-release-19 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\64f6fd1dce63e10af9727dc1dc08d19f\transformed\animation-release\res
+com.fawadini.eznotes.app-graphics-path-1.0.1-20 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\66fb6c8305ef47c9ef12c45c1763405e\transformed\graphics-path-1.0.1\res
+com.fawadini.eznotes.app-navigation-common-2.8.4-21 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\6f197a4b2cc207f4c99bc8b8fc590f06\transformed\navigation-common-2.8.4\res
+com.fawadini.eznotes.app-material3-release-22 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\74c57549a7ddbdeba3b820f089cd930f\transformed\material3-release\res
+com.fawadini.eznotes.app-lifecycle-viewmodel-release-23 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\7542fd3c26a4f0ff0ba5c127c09568ce\transformed\lifecycle-viewmodel-release\res
+com.fawadini.eznotes.app-navigation-compose-2.8.4-24 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\7ef2a9f8bed594431a7b515d7f0d7e82\transformed\navigation-compose-2.8.4\res
+com.fawadini.eznotes.app-room-ktx-2.6.1-25 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\840540e633cb327c6c600d7b60196529\transformed\room-ktx-2.6.1\res
+com.fawadini.eznotes.app-lifecycle-livedata-core-2.8.7-26 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\8511636dbc71c4390d948626de2facfe\transformed\lifecycle-livedata-core-2.8.7\res
+com.fawadini.eznotes.app-tracing-1.2.0-27 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\8ac9ede3d74e6e0e7c5c5947ca400e73\transformed\tracing-1.2.0\res
+com.fawadini.eznotes.app-sqlite-2.4.0-28 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\8e8026a9d6c9c665ba764c0d15fa289a\transformed\sqlite-2.4.0\res
+com.fawadini.eznotes.app-ui-tooling-data-release-29 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\8f9bc398792c2fce32e3fe2af70ab329\transformed\ui-tooling-data-release\res
+com.fawadini.eznotes.app-core-1.15.0-30 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\90a7c36d4ddd3127557fc3b43b277121\transformed\core-1.15.0\res
+com.fawadini.eznotes.app-ui-text-release-31 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\929e05ffae774e58ee291422739db779\transformed\ui-text-release\res
+com.fawadini.eznotes.app-lifecycle-viewmodel-compose-release-32 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\95f808680405ebaecb627584a718f4cb\transformed\lifecycle-viewmodel-compose-release\res
+com.fawadini.eznotes.app-activity-1.9.3-33 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\9a48ea922c96989fe5c7dfd30fe4c908\transformed\activity-1.9.3\res
+com.fawadini.eznotes.app-runtime-release-34 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\9ea128f1156e2162c2d1e6bcdacb0877\transformed\runtime-release\res
+com.fawadini.eznotes.app-lifecycle-runtime-release-35 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\a955a45151c177669e8c28fc9b4eff63\transformed\lifecycle-runtime-release\res
+com.fawadini.eznotes.app-annotation-experimental-1.4.1-36 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\ad591c38344304280ed829cd9715780f\transformed\annotation-experimental-1.4.1\res
+com.fawadini.eznotes.app-lifecycle-viewmodel-savedstate-2.8.7-37 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\ada543649e137fcf3c10c70d82e00ff1\transformed\lifecycle-viewmodel-savedstate-2.8.7\res
+com.fawadini.eznotes.app-material-icons-extended-release-38 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\af6a77537b60589bb7ec6e147ecc22f4\transformed\material-icons-extended-release\res
+com.fawadini.eznotes.app-activity-compose-1.9.3-39 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\be2603d1ff1cfd821010bb8a1b7b7adb\transformed\activity-compose-1.9.3\res
+com.fawadini.eznotes.app-runtime-saveable-release-40 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\c0650601ac3469897ab8c1088b76e46b\transformed\runtime-saveable-release\res
+com.fawadini.eznotes.app-core-ktx-1.15.0-41 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\c3243ba3ce84ad8a56c3118e066600c7\transformed\core-ktx-1.15.0\res
+com.fawadini.eznotes.app-core-runtime-2.2.0-42 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\c4166c8c2efef912bc47bea6a0b900a1\transformed\core-runtime-2.2.0\res
+com.fawadini.eznotes.app-foundation-release-43 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\c7cadc5ce89389ef985790c1f6dfd474\transformed\foundation-release\res
+com.fawadini.eznotes.app-lifecycle-runtime-compose-release-44 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\d312a9789db3659d440bd0a66d3fa3f4\transformed\lifecycle-runtime-compose-release\res
+com.fawadini.eznotes.app-profileinstaller-1.3.1-45 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\d68b179f9a2e68b9197e0f4195ed6825\transformed\profileinstaller-1.3.1\res
+com.fawadini.eznotes.app-ui-tooling-release-46 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\d848ff1e08dc2292669ae23066dae1d1\transformed\ui-tooling-release\res
+com.fawadini.eznotes.app-lifecycle-runtime-ktx-release-47 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\deadb70297757da1439572ab77972093\transformed\lifecycle-runtime-ktx-release\res
+com.fawadini.eznotes.app-navigation-common-ktx-2.8.4-48 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\e7218c8654a91c1455ab25e6f69da3b7\transformed\navigation-common-ktx-2.8.4\res
+com.fawadini.eznotes.app-foundation-layout-release-49 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\ef13ba8adfedb744fc8d13e4f1ba932d\transformed\foundation-layout-release\res
+com.fawadini.eznotes.app-ui-release-50 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\ef40b53cb099fc995eaeb28ca9ac2deb\transformed\ui-release\res
+com.fawadini.eznotes.app-activity-ktx-1.9.3-51 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\f1a8b4430f29ee525a617b4389dde4a3\transformed\activity-ktx-1.9.3\res
+com.fawadini.eznotes.app-room-runtime-2.6.1-52 C:\Users\Engr Ammar Official\.gradle\caches\8.9\transforms\f3be1b95d09bb52d88f2bce308ba24da\transformed\room-runtime-2.6.1\res
+com.fawadini.eznotes.app-resValues-53 D:\Antigravity\EZ Notes\app\build\generated\res\resValues\debug
+com.fawadini.eznotes.app-packageDebugResources-54 D:\Antigravity\EZ Notes\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.fawadini.eznotes.app-packageDebugResources-55 D:\Antigravity\EZ Notes\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.fawadini.eznotes.app-debug-56 D:\Antigravity\EZ Notes\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.fawadini.eznotes.app-debug-57 D:\Antigravity\EZ Notes\app\src\debug\res
+com.fawadini.eznotes.app-main-58 D:\Antigravity\EZ Notes\app\src\main\res
