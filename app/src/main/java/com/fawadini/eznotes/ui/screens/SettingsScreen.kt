@@ -1,7 +1,15 @@
 package com.fawadini.eznotes.ui.screens
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,10 +28,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.automirrored.filled.ArrowForwardIos
+import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Checklist
 import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Description
@@ -34,20 +42,23 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.fawadini.eznotes.BuildConfig
 import com.fawadini.eznotes.ui.viewmodel.SettingsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -58,6 +69,12 @@ fun SettingsScreen(
 ) {
     val stats by viewModel.stats.collectAsState()
     val isDark = isSystemInDarkTheme()
+    val context = LocalContext.current
+
+    // Dynamically retrieve versionName & versionCode linked to build.gradle.kts
+    val (versionName, versionCode) = remember(context) {
+        getAppVersionDetails(context)
+    }
 
     val surfaceColor = if (isDark) Color(0xFF1E293B) else Color.White
     val borderColor = if (isDark) Color(0xFF334155) else Color(0xFFE2E8F0)
@@ -67,7 +84,7 @@ fun SettingsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("About & Settings", fontWeight = FontWeight.Bold) },
+                title = { Text("Settings", fontWeight = FontWeight.Bold) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
@@ -120,49 +137,8 @@ fun SettingsScreen(
                         )
                     )
                     Text(
-                        text = "Version 1.0.0 • Production Build",
+                        text = "Version $versionName ($versionCode)",
                         style = MaterialTheme.typography.bodyMedium.copy(color = textSecondary)
-                    )
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Privacy & Offline First Card
-            Card(
-                modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(18.dp),
-                colors = CardDefaults.cardColors(
-                    containerColor = if (isDark) Color(0xFF064E3B).copy(alpha = 0.3f) else Color(0xFFECFDF5)
-                ),
-                border = BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.4f))
-            ) {
-                Column(modifier = Modifier.padding(18.dp)) {
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.Default.Shield,
-                            contentDescription = null,
-                            tint = Color(0xFF10B981),
-                            modifier = Modifier.size(24.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
-                        Text(
-                            text = "100% Offline & Private",
-                            style = MaterialTheme.typography.titleMedium.copy(
-                                fontWeight = FontWeight.Bold,
-                                color = if (isDark) Color(0xFFA7F3D0) else Color(0xFF065F46)
-                            )
-                        )
-                    }
-
-                    Spacer(modifier = Modifier.height(8.dp))
-
-                    Text(
-                        text = "EZ Notes does not contain internet permissions or third-party tracking libraries. All your notes, checklists, and data remain purely on your device.",
-                        style = MaterialTheme.typography.bodyMedium.copy(
-                            color = if (isDark) Color(0xFFD1FAE5) else Color(0xFF047857),
-                            lineHeight = 20.sp
-                        )
                     )
                 }
             }
@@ -190,7 +166,7 @@ fun SettingsScreen(
                     StatRow(
                         icon = Icons.Outlined.Description,
                         label = "Active Notes",
-                        value = "${stats.activeNotesCount - stats.todoListsCount.coerceAtMost(stats.activeNotesCount)}",
+                        value = "${(stats.activeNotesCount - stats.todoListsCount).coerceAtLeast(0)}",
                         tint = MaterialTheme.colorScheme.primary
                     )
                     Spacer(modifier = Modifier.height(12.dp))
@@ -212,9 +188,9 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            // Technical Specifications
+            // About & App Details Section
             Text(
-                text = "Technical Details",
+                text = "About",
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.Bold,
                     color = textPrimary
@@ -230,17 +206,206 @@ fun SettingsScreen(
                 border = BorderStroke(1.dp, borderColor)
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    TechSpecRow("Package Name", "com.fawadini.eznotes")
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TechSpecRow("Database", "Room SQLite (Local)")
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TechSpecRow("UI Toolkit", "Jetpack Compose (Material 3)")
-                    Spacer(modifier = Modifier.height(8.dp))
-                    TechSpecRow("Network Dependency", "None (Zero Internet Perms)")
+                    // Developed by Row
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier
+                                    .size(36.dp)
+                                    .background(
+                                        MaterialTheme.colorScheme.primary.copy(alpha = 0.12f),
+                                        CircleShape
+                                    )
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Code,
+                                    contentDescription = null,
+                                    tint = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.width(14.dp))
+                            Text(
+                                text = "Developed by",
+                                style = MaterialTheme.typography.bodyMedium.copy(color = textSecondary)
+                            )
+                        }
+                        Text(
+                            text = "Fawad ini",
+                            style = MaterialTheme.typography.bodyLarge.copy(
+                                fontWeight = FontWeight.Bold,
+                                color = textPrimary
+                            )
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    // Version Row (Directly linked to build.gradle.kts)
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Box(
+                                contentAlignment = Alignment.Center,
+                                modifier = Modifier
+                                    .size(36.dp)
+                                    .background(
+                                        Color(0xFF64748B).copy(alpha = 0.12f),
+                                        CircleShape
+                                    )
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Default.Info,
+                                    contentDescription = null,
+                                    tint = Color(0xFF64748B),
+                                    modifier = Modifier.size(20.dp)
+                                )
+                            }
+                            Spacer(modifier = Modifier.width(14.dp))
+                            Text(
+                                text = "Version",
+                                style = MaterialTheme.typography.bodyMedium.copy(color = textSecondary)
+                            )
+                        }
+                        Text(
+                            text = "$versionName ($versionCode)",
+                            style = MaterialTheme.typography.bodyMedium.copy(
+                                fontWeight = FontWeight.SemiBold,
+                                color = textPrimary
+                            )
+                        )
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Rate Us Card (Clickable with Play Store Intent)
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(18.dp))
+                    .clickable { launchPlayStoreRating(context) },
+                shape = RoundedCornerShape(18.dp),
+                colors = CardDefaults.cardColors(containerColor = surfaceColor),
+                border = BorderStroke(1.dp, borderColor)
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.weight(1f)
+                    ) {
+                        Box(
+                            contentAlignment = Alignment.Center,
+                            modifier = Modifier
+                                .size(36.dp)
+                                .background(
+                                    Color(0xFFF59E0B).copy(alpha = 0.15f),
+                                    CircleShape
+                                )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Star,
+                                contentDescription = null,
+                                tint = Color(0xFFF59E0B),
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(14.dp))
+                        Column {
+                            Text(
+                                text = "Rate Us",
+                                style = MaterialTheme.typography.bodyLarge.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    color = textPrimary
+                                )
+                            )
+                            Spacer(modifier = Modifier.height(2.dp))
+                            Text(
+                                text = "Enjoying EZ Notes? Rate us on Google Play",
+                                style = MaterialTheme.typography.bodySmall.copy(color = textSecondary)
+                            )
+                        }
+                    }
+
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos,
+                        contentDescription = "Open Play Store",
+                        tint = textSecondary,
+                        modifier = Modifier.size(16.dp)
+                    )
                 }
             }
 
             Spacer(modifier = Modifier.height(32.dp))
+        }
+    }
+}
+
+/**
+ * Safely resolves the version name and version code linked to build.gradle.kts
+ */
+private fun getAppVersionDetails(context: Context): Pair<String, String> {
+    return try {
+        val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.packageManager.getPackageInfo(
+                context.packageName,
+                PackageManager.PackageInfoFlags.of(0)
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            context.packageManager.getPackageInfo(context.packageName, 0)
+        }
+
+        val vName = packageInfo.versionName ?: BuildConfig.VERSION_NAME
+        val vCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            packageInfo.longVersionCode.toString()
+        } else {
+            @Suppress("DEPRECATION")
+            packageInfo.versionCode.toString()
+        }
+        Pair(vName, vCode)
+    } catch (e: Exception) {
+        Pair(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE.toString())
+    }
+}
+
+/**
+ * Launches Google Play Store for rating with web browser fallback
+ */
+private fun launchPlayStoreRating(context: Context) {
+    val packageName = context.packageName
+    try {
+        val marketUri = Uri.parse("market://details?id=$packageName")
+        val marketIntent = Intent(Intent.ACTION_VIEW, marketUri).apply {
+            addFlags(
+                Intent.FLAG_ACTIVITY_NO_HISTORY or
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+            )
+        }
+        context.startActivity(marketIntent)
+    } catch (e: ActivityNotFoundException) {
+        try {
+            val webUri = Uri.parse("https://play.google.com/store/apps/details?id=$packageName")
+            val webIntent = Intent(Intent.ACTION_VIEW, webUri)
+            context.startActivity(webIntent)
+        } catch (e2: Exception) {
+            Toast.makeText(context, "Unable to open Google Play Store", Toast.LENGTH_SHORT).show()
         }
     }
 }
@@ -277,30 +442,6 @@ private fun StatRow(
             text = value,
             style = MaterialTheme.typography.bodyLarge.copy(
                 fontWeight = FontWeight.Bold,
-                color = textPrimary
-            )
-        )
-    }
-}
-
-@Composable
-private fun TechSpecRow(label: String, value: String) {
-    val textPrimary = if (isSystemInDarkTheme()) Color.White else Color(0xFF0F172A)
-    val textSecondary = if (isSystemInDarkTheme()) Color(0xFF94A3B8) else Color(0xFF64748B)
-
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium.copy(color = textSecondary)
-        )
-        Text(
-            text = value,
-            style = MaterialTheme.typography.bodyMedium.copy(
-                fontWeight = FontWeight.SemiBold,
                 color = textPrimary
             )
         )

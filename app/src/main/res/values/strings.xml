@@ -27,4 +27,9 @@
     <string name="empty_trash_title">Empty Trash?</string>
     <string name="empty_trash_desc">All items in the trash will be permanently deleted.</string>
     <string name="privacy_guarantee">100% Offline &amp; Private. Your notes never leave this device.</string>
+    <string name="developed_by">Developed by</string>
+    <string name="developer_name">Fawad ini</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="rate_us_desc">Enjoying EZ Notes? Leave a rating on Google Play</string>
+    <string name="app_version">Version</string>
 </resources>
